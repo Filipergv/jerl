@@ -36,10 +36,10 @@ public class GenerateParseTree {
                 CommonTokenStream tokens = new CommonTokenStream(lexer);
                 JavaParser parser = new JavaParser(tokens);
                 ParseTree tree = parser.compilationUnit();
-                System.out.println(tree.toStringTree(parser));
 
-//                ParseTreeWalker walker = new ParseTreeWalker();
-//    			walker.walk(new Translate(), tree);
+                ParseTreeWalker walker = new ParseTreeWalker();
+    			walker.walk(new Translate(), tree);
+    			System.out.println(tree.toStringTree(parser));
 /*
                 FileWriter cerl = new FileWriter(new File(outputFile));
                 BufferedWriter bw = new BufferedWriter(cerl);
